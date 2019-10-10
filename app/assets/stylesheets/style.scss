@@ -1,0 +1,33 @@
+html, body{
+    margin: 0px;
+    font-family: 'Oswald', sans-serif;
+}
+
+a, a:visited{
+    color: inherit !important;
+    text-decoration: none;
+}
+
+.be-red{
+    background-color: brown;
+}
+
+.white{
+    color: white;
+}
+
+.large-padding{
+    padding: 10px 10px;
+}
+
+.no-list{
+    list-style: none;
+}
+
+.no-margin{
+    margin: 0px;
+}
+
+#logo{
+    font-size: 1.5em;
+}

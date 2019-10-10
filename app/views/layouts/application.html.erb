@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog Einsen</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <nav class="be-red white large-padding">
+        <ul class="no-list row center-xs middle-xs">
+          <li class="col-md">
+            <h1 class="no-margin" id="logo">Blog Einsen</h1>
+          </li>
+          <li class="col-md">
+            <%= link_to "Inicio", root_path %>
+          </li>
+          <li class="col-md">
+            Diseño
+          </li>
+          <li class="col-md">
+            Programación
+          </li>
+          <li class="col-md">
+            Tecnología
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <%= yield %>
+  </body>
+</html>

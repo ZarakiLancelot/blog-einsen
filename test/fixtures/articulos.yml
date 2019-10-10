@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: articulos
+#
+#  id               :integer          not null, primary key
+#  titulo           :string
+#  cuerpo           :text
+#  contador_visitas :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  cuerpo: MyText
+  contador_visitas: 1
+
+two:
+  titulo: MyString
+  cuerpo: MyText
+  contador_visitas: 1
