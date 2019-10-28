@@ -1,1 +1,3 @@
-<h1>Bienvenido</h1>
+<% if usuario_signed_in? %>
+    <h1>Bienvenido <%= current_usuario.email %></h1>
+<% end %>

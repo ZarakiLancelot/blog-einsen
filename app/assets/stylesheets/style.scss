@@ -3,9 +3,21 @@ html, body{
     font-family: 'Oswald', sans-serif;
 }
 
+.btn{
+    background-color: inherit;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
 a, a:visited{
     color: inherit !important;
     text-decoration: none;
+}
+
+.danger{
+    color: brown !important;
 }
 
 .be-red{
@@ -30,4 +42,23 @@ a, a:visited{
 
 #logo{
     font-size: 1.5em;
+}
+
+.field, .top-space, .actions{
+    margin-top: 1em;
+    margin-left: 2em;
+}
+
+.form-control{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+    display: block;
+    padding: 10px 0px;
+    font-size: 1.2em;
+}
+
+.text-left{
+    text-align: left;
 }

@@ -1,7 +1,7 @@
 <h1>Artículos</h1>
 <% @articulos.each do |articulo| %>
-    <h2><%= articulo.titulo%></h2>
+    <h2><%= link_to articulo.titulo, articulo%></h2>
     <div>
-        <%= articulo.cuerpo%>
+        <%= articulo.cuerpo%> - <%= link_to "Eliminar", articulo, class: "danger", method: :delete%>
     </div>
 <%end%>

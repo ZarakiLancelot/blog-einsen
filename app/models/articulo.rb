@@ -11,4 +11,6 @@
 #
 
 class Articulo < ApplicationRecord
+    validates :titulo, presence: true, length: { minimum: 8 }
+    validates :cuerpo, presence: true, length: { minimum: 20 }
 end
