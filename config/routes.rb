@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+
   devise_for :usuarios
   get 'welcome/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :articulos
+  resources :articulos do
+    resources :comentarios, only: [:create, :update, :destroy]
+  end
+
 =begin
   get "/articulos"              index
   post "/articulos"             create

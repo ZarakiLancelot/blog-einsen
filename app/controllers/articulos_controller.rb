@@ -1,10 +1,15 @@
 class ArticulosController < ApplicationController
+    #before_action   :validate_usuario, except: [:show, :index]
+    before_action   :authenticate_usuario!, except: [:show, :index]
+    before_action   :set_articulo, except: [:index, :new, :create]
+
     def index
         @articulos = Articulo.all
     end
 
     def show
-        @articulo = Articulo.find(params[:id])
+        @articulo.update_contador_visitas
+        @comentario = Comentario.new
     end
 
     def new
@@ -12,11 +17,10 @@ class ArticulosController < ApplicationController
     end
 
     def edit
-        @articulo = Articulo.find(params[:id])
     end
 
     def create
-        @articulo = Articulo.new(articulo_params)
+        @articulo = current_usuario.articulo.new(articulo_params)
         if @articulo.save
             redirect_to @articulo
         else
@@ -25,13 +29,11 @@ class ArticulosController < ApplicationController
     end
 
     def destroy
-        @articulo = Articulo.find(params[:id])
         @articulo.destroy
         redirect_to articulos_path
     end
 
     def update
-        @articulo = Articulo.find(params[:id])
         if @articulo.update(articulo_params)
             redirect_to @articulo
         else
@@ -40,6 +42,15 @@ class ArticulosController < ApplicationController
     end
 
     private
+
+    def set_articulo
+        @articulo = Articulo.find(params[:id])
+    end
+
+    def validate_usuario
+        redirect_to new_usuario_session_path, notice: "Necesitas iniciar sesión antes"
+    end
+
     def articulo_params
         params.require(:articulo).permit(:titulo, :cuerpo)
     end

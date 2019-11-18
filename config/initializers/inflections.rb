@@ -10,6 +10,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.uncountable %w( fish sheep )
     inflect.irregular 'articulo', 'articulos'
     inflect.irregular 'usuario', 'usuarios'
+    inflect.irregular 'comentario', 'comentarios'
 end
 
 # These inflection rules are supported but not enabled by default:

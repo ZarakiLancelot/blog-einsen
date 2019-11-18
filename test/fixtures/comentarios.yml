@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: comentarios
+#
+#  id          :integer          not null, primary key
+#  usuario_id  :integer
+#  articulo_id :integer
+#  cuerpo      :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  articulo: one
+  cuerpo: MyText
+
+two:
+  usuario: two
+  articulo: two
+  cuerpo: MyText

@@ -1,0 +1,10 @@
+<%= form_for([@articulo, @comentario]) do |form| %>
+  <div class="field">
+    <%= form.label :cuerpo %>
+    <%= form.text_area :cuerpo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

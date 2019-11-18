@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_050337) do
+ActiveRecord::Schema.define(version: 2019_11_04_094216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2019_10_14_050337) do
     t.integer "contador_visitas"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "usuario_id"
+    t.index ["usuario_id"], name: "index_articulos_on_usuario_id"
+  end
+
+  create_table "comentarios", force: :cascade do |t|
+    t.bigint "usuario_id"
+    t.bigint "articulo_id"
+    t.text "cuerpo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["articulo_id"], name: "index_comentarios_on_articulo_id"
+    t.index ["usuario_id"], name: "index_comentarios_on_usuario_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -42,4 +54,7 @@ ActiveRecord::Schema.define(version: 2019_10_14_050337) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articulos", "usuarios"
+  add_foreign_key "comentarios", "articulos"
+  add_foreign_key "comentarios", "usuarios"
 end

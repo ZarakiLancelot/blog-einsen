@@ -1,6 +1,23 @@
 <h1><%= @articulo.titulo %></h1>
+<p>
+    Escrito por: <%= @articulo.usuario.email if !@articulo.usuario.nil? %>
+</p>
+<p>
+    Visitas: <%= @articulo.contador_visitas if !@articulo.contador_visitas.nil? %>
+</p>
 <div>
     <%= @articulo.cuerpo %>
+</div>
+<div class="field">
+    <h3>Comentarios</h3>
+    <%= render 'comentarios/form'%>
+    <ul>
+        <% @articulo.comentario.each do |ac|%>
+            <li>
+                <%= ac.cuerpo %> - <%= ac.usuario.email %>
+            </li>
+        <% end %>
+    </ul>
 </div>
 <div>
     <%= link_to "Editar", edit_articulo_path(@articulo)%>
